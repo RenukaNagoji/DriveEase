@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vehicle | DriveEase</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="admin" class="">
+
+    <div id="siteHeader"></div>
+
+
+    <div class="admin-shell">
+        <aside class="admin-sidebar" id="adminSidebar"></aside>
+        <main class="admin-main">
+            <div class="admin-heading">
+                <div><h1>Add a New Vehicle</h1><p>Each row is one physical vehicle. Use quantity to add identical vehicles at once.</p></div>
+                <a href="manage_vehicles.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-arrow-left"></i> Back to Vehicles</a>
+            </div>
+            <section class="admin-section form-card">
+                <p id="addVehicleMessage" class="alert" role="status"></p>
+                <form id="addVehicleForm">
+                    <div class="admin-form-grid">
+                    <label>Vehicle name
+                        <input type="text" id="vehicleName" class="form-control" maxlength="120" placeholder="e.g. Royal Enfield Classic 350" required></label>
+                    <label>Vehicle type
+                        <select id="vehicleType" class="form-control" required><option value="">Select vehicle type</option></select></label>
+                    <label>Rental price per day (₹)
+                        <input type="number" id="vehiclePrice" class="form-control" min="0" step="0.01" placeholder="e.g. 1500" required></label>
+                    <label>Status
+                        <select id="vehicleStatus" class="form-control" required>
+                            <option value="available">Available</option>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="inactive">Inactive</option>
+                        </select></label>
+                    <label>Quantity
+                        <input type="number" id="vehicleQuantity" class="form-control" min="1" max="20" value="1" required></label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="saveVehicleButton" class="btn">Add Vehicle</button>
+                        <button type="reset" class="btn btn-outline">Clear Form</button>
+                    </div>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/admin_common.js"></script>
+    <script src="../Javascript Files/add_vehicle.js"></script>
+</body>
+</html>

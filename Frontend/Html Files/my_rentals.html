@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rentals | DriveEase</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="rentals" class="">
+
+    <div id="siteHeader"></div>
+
+    <section class="page-banner">
+        <div class="page-banner-inner">
+            <p class="eyebrow">YOUR DRIVEEASE ACCOUNT</p>
+            <h1>My Rentals</h1>
+            <p>Track your bookings and review your rental details.</p>
+        </div>
+    </section>
+
+    <main class="page-container">
+        <div class="list-heading">
+            <div>
+                <p style="color:var(--muted);font-size:13px;">Welcome back,</p>
+                <h2 id="customerName">Customer</h2>
+            </div>
+            <a href="vehicles.html" class="btn"><i class="fa-solid fa-plus"></i> Book a Vehicle</a>
+        </div>
+
+        <div id="rentalsMessage" class="alert" role="status" aria-live="polite"></div>
+
+        <section class="stats-row">
+            <article class="stat-card"><div class="stat-icon"><i class="fa-solid fa-clipboard-list"></i></div><p>Total Bookings</p><h3 id="totalBookings">0</h3></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fa-solid fa-car-side"></i></div><p>Active Bookings</p><h3 id="activeBookings">0</h3></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fa-solid fa-wallet"></i></div><p>Amount Paid</p><h3 id="paidAmount">₹0</h3></article>
+        </section>
+
+        <div class="list-heading">
+            <div>
+                <h2>Booking History</h2>
+                <p>All your vehicle bookings in one place.</p>
+            </div>
+            <select id="bookingStatusFilter" class="form-control" style="width:auto;" aria-label="Filter bookings">
+                <option value="all">All Bookings</option>
+                <option value="pending">Pending</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+        </div>
+
+        <div id="rentalsList"></div>
+        <div class="empty-state" id="rentalsEmpty" hidden>
+            <div class="empty-icon">🚘</div>
+            <h3>No bookings found</h3>
+            <p>Your bookings will appear here after you book a vehicle.</p>
+            <a href="vehicles.html" class="btn">Explore Vehicles</a>
+        </div>
+    </main>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/my_rentals.js"></script>
+</body>
+</html>

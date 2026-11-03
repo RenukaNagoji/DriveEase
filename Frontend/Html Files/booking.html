@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Vehicle | DriveEase</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="vehicles" class="">
+
+    <div id="siteHeader"></div>
+
+    <section class="page-banner">
+        <div class="page-banner-inner">
+            <p class="eyebrow">YOUR JOURNEY STARTS HERE</p>
+            <h1>Book Your Vehicles</h1>
+            <p>Choose your dates, pick one or more vehicles and confirm your trip.</p>
+        </div>
+    </section>
+
+    <main class="page-container">
+        <div id="bookingMessage" class="alert" role="status" aria-live="polite"></div>
+
+        <div class="booking-layout">
+            <form id="bookingForm" novalidate>
+                <!-- 1. TRIP -->
+                <section class="card">
+                    <div class="step-title"><span class="num">1</span><h2>Trip Details</h2></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startDate">Pick-up date &amp; time</label>
+                            <input type="datetime-local" id="startDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">Return date &amp; time</label>
+                            <input type="datetime-local" id="endDate" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pickupLocation">Pick-up location</label>
+                            <input type="text" id="pickupLocation" class="form-control" placeholder="Enter pick-up location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoffLocation">Drop-off location</label>
+                            <input type="text" id="dropoffLocation" class="form-control" placeholder="Enter drop-off location" required>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. VEHICLES -->
+                <section class="card">
+                    <div class="step-title"><span class="num">2</span><h2>Choose Vehicles</h2></div>
+                    <p class="card-sub">You can book several vehicles in one booking. Only vehicles free for your dates are shown.</p>
+                    <div class="pick-list" id="vehiclePicker">
+                        <p class="alert">Select your pick-up and return time to see available vehicles.</p>
+                    </div>
+                </section>
+
+                <!-- 3. DRIVERS -->
+                <section class="card" id="driverCard" hidden>
+                    <div class="step-title"><span class="num">3</span><h2>Drivers (optional)</h2></div>
+                    <p class="card-sub">Add an experienced driver to any vehicle. Drivers already booked for your dates are unavailable.</p>
+                    <div id="driverRows"></div>
+                </section>
+
+                <!-- 4. OFFERS -->
+                <section class="card">
+                    <div class="step-title"><span class="num">4</span><h2>Offers</h2></div>
+                    <p class="card-sub">Each offer applies only to bookings that qualify. One offer per booking.</p>
+                    <div id="offerList"><p class="alert">Choose your vehicles to see which offers you can use.</p></div>
+                </section>
+
+                <!-- 5. PAYMENT -->
+                <section class="card">
+                    <div class="step-title"><span class="num">5</span><h2>Payment Method</h2></div>
+                    <div class="pay-methods" id="payMethods"></div>
+                </section>
+            </form>
+
+            <aside class="card summary">
+                <h2>Booking Summary</h2>
+                <ul class="summary-items" id="summaryItems"><li>No vehicles selected yet</li></ul>
+                <div class="summary-row"><span>Rental days</span><strong id="summaryDays">—</strong></div>
+                <div class="summary-row"><span>Subtotal</span><strong id="summarySubtotal">₹0.00</strong></div>
+                <div class="summary-row discount"><span id="summaryOfferLabel">Discount</span><strong id="summaryDiscount">−₹0.00</strong></div>
+                <div class="summary-total"><span>Total</span><strong id="summaryTotal">₹0.00</strong></div>
+                <button type="submit" form="bookingForm" id="confirmBookingButton" class="btn btn-block" style="margin-top:18px;">
+                    Confirm Booking
+                </button>
+                <p class="note">The server re-checks availability, offer eligibility and the final price before your booking is confirmed.</p>
+            </aside>
+        </div>
+    </main>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/booking.js"></script>
+</body>
+</html>

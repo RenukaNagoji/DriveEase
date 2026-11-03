@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | DriveEase</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="admin" class="">
+
+    <div id="siteHeader"></div>
+
+
+    <div class="admin-shell">
+        <aside class="admin-sidebar" id="adminSidebar"></aside>
+        <main class="admin-main">
+            <div class="admin-heading">
+                <div>
+                    <h1>Dashboard Overview</h1>
+                    <p id="adminWelcome">Manage your vehicle rental business in one place.</p>
+                </div>
+                <button id="refreshDashboardButton" class="btn btn-outline btn-sm"><i class="fa-solid fa-rotate"></i> Refresh</button>
+            </div>
+            <p id="adminMessage" class="alert" role="status"></p>
+
+            <section class="admin-stats">
+                <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-car"></i></div><p>Total Vehicles</p><h3 id="totalVehicles">0</h3></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div><p>Available Vehicles</p><h3 id="availableVehicles">0</h3></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-key"></i></div><p>Rented Right Now</p><h3 id="rentedVehicles">0</h3></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div><p>Total Bookings</p><h3 id="totalBookings">0</h3></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><p>Total Customers</p><h3 id="totalCustomers">0</h3></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div><p>Payments Received</p><h3 id="totalRevenue">₹0</h3></div>
+            </section>
+
+            <section class="admin-section" id="bookingsSection">
+                <div class="admin-section-heading"><div><h2>Bookings</h2><p>Each booking can include several vehicles. Change its status here.</p></div></div>
+                <div class="table-wrap"><table class="data-table">
+                    <thead><tr><th>ID</th><th>Customer</th><th>Vehicles</th><th>Rental Period</th><th>Offer</th><th>Total</th><th>Status</th></tr></thead>
+                    <tbody id="bookingsTableBody"><tr><td colspan="7">Loading bookings...</td></tr></tbody>
+                </table></div>
+            </section>
+
+            <section class="admin-section" id="paymentsSection">
+                <div class="admin-section-heading"><div><h2>Payments</h2><p>Mark payments as received when the customer has paid.</p></div></div>
+                <div class="table-wrap"><table class="data-table">
+                    <thead><tr><th>ID</th><th>Booking</th><th>Customer</th><th>Amount</th><th>Method</th><th>Paid On</th><th>Status</th></tr></thead>
+                    <tbody id="paymentsTableBody"><tr><td colspan="7">Loading payments...</td></tr></tbody>
+                </table></div>
+            </section>
+
+            <section class="admin-section" id="customersSection">
+                <div class="admin-section-heading"><div><h2>Customers</h2><p>Registered customers</p></div></div>
+                <div class="table-wrap"><table class="data-table">
+                    <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr></thead>
+                    <tbody id="customersTableBody"><tr><td colspan="5">Loading customers...</td></tr></tbody>
+                </table></div>
+            </section>
+
+            <section class="admin-section" id="offersSection">
+                <div class="admin-section-heading">
+                    <div><h2>Offers</h2><p>Manage promotional discounts</p></div>
+                    <button id="showOfferFormButton" class="btn btn-sm"><i class="fa-solid fa-plus"></i> Add Offer</button>
+                </div>
+                <form id="offerForm" class="admin-form" hidden>
+                    <div class="admin-form-grid">
+                        <label>Offer code<input type="text" id="offerCode" class="form-control" placeholder="e.g. SAVE200" required></label>
+                        <label>Offer name<input type="text" id="offerName" class="form-control" placeholder="e.g. Weekend Special" required></label>
+                        <label>Discount type
+                            <select id="discountType" class="form-control" required>
+                                <option value="percentage">Percentage</option>
+                                <option value="fixed">Fixed amount</option>
+                            </select></label>
+                        <label>Discount value<input type="number" id="discountValue" class="form-control" min="0.01" step="0.01" required></label>
+                        <label>Valid from<input type="date" id="validFrom" class="form-control" required></label>
+                        <label>Valid to<input type="date" id="validTo" class="form-control" required></label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-sm">Save Offer</button>
+                        <button type="button" id="cancelOfferButton" class="btn btn-outline btn-sm">Cancel</button>
+                    </div>
+                </form>
+                <p id="offerMessage" class="message"></p>
+                <div class="table-wrap"><table class="data-table">
+                    <thead><tr><th>ID</th><th>Code</th><th>Name</th><th>Discount</th><th>Applies To</th><th>Valid</th><th>Active</th></tr></thead>
+                    <tbody id="offersTableBody"><tr><td colspan="7">Loading offers...</td></tr></tbody>
+                </table></div>
+            </section>
+
+        </main>
+    </div>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/admin_common.js"></script>
+    <script src="../Javascript Files/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details | DriveEase</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="vehicles" class="">
+
+    <div id="siteHeader"></div>
+
+    <section class="page-banner">
+        <div class="page-banner-inner">
+            <p class="eyebrow">DRIVEEASE COLLECTION</p>
+            <h1>Vehicle Details</h1>
+            <p>Check the price and availability, then book in a few steps.</p>
+        </div>
+    </section>
+
+    <main class="page-container">
+        <a href="vehicles.html" class="back-link" id="backLink"><i class="fa-solid fa-arrow-left"></i> Back to Vehicles</a>
+        <div id="detailsMessage" class="alert" role="status" aria-live="polite">Loading vehicle details...</div>
+
+        <section id="vehicleDetails" class="details-layout" hidden>
+            <div class="details-image">
+                <span class="vehicle-tag" id="vehicleCategory"></span>
+                <img id="vehicleImage" src="" alt="Selected vehicle">
+            </div>
+            <div class="details-info">
+                <span class="eyebrow">DRIVEEASE COLLECTION</span>
+                <h1 id="vehicleName">Vehicle</h1>
+                <div class="info-box">
+                    <span>Availability</span>
+                    <strong id="availabilityText"></strong>
+                </div>
+                <div class="price-box">
+                    <span>Rental price</span><br>
+                    <strong id="vehiclePrice"></strong> <span>/ day</span>
+                    <p class="note">Every started 24 hours counts as one rental day.</p>
+                </div>
+                <ul class="spec-list" id="specList"></ul>
+                <button id="bookVehicleButton" class="btn btn-block" type="button">
+                    Book This Vehicle <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <p class="note">Booking is subject to vehicle availability for your dates.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/vehicle_details.js"></script>
+</body>
+</html>

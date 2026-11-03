@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveEase - Vehicle Rental</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="home" class="">
+
+    <div id="siteHeader"></div>
+
+
+    <!-- HERO (navbar sits above the hero image) -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <p class="hero-small-text">YOUR JOURNEY, YOUR WAY</p>
+            <h1>Rent Your <span>Perfect Ride</span></h1>
+            <p class="hero-description">
+                Choose from our wide range of reliable bikes, cars and minibuses
+                and enjoy a comfortable, safe and affordable journey.
+            </p>
+            <a href="vehicles.html" class="btn hero-button">
+                Explore Vehicles <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <form class="search-box" id="searchForm">
+            <div class="search-field">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <label for="pickupLocation">Pick-up Location</label>
+                    <input type="text" id="pickupLocation" placeholder="Enter location">
+                </div>
+            </div>
+            <div class="search-field">
+                <i class="fa-regular fa-calendar"></i>
+                <div>
+                    <label for="pickupDate">Pick-up Date &amp; Time</label>
+                    <input type="datetime-local" id="pickupDate">
+                </div>
+            </div>
+            <div class="search-field">
+                <i class="fa-regular fa-calendar-check"></i>
+                <div>
+                    <label for="dropoffDate">Return Date &amp; Time</label>
+                    <input type="datetime-local" id="dropoffDate">
+                </div>
+            </div>
+            <div class="search-field">
+                <i class="fa-solid fa-car-side"></i>
+                <div>
+                    <label for="vehicleType">Vehicle Type</label>
+                    <select id="vehicleType">
+                        <option value="">All Types</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+        </form>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits-section">
+        <div class="benefit">
+            <div class="benefit-icon"><i class="fa-solid fa-car"></i></div>
+            <div><h3>Wide Range of Vehicles</h3><p>Bikes, cars and minibuses for every trip.</p></div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="fa-solid fa-tags"></i></div>
+            <div><h3>Affordable Pricing</h3><p>Great prices and money-saving offers.</p></div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <div><h3>Experienced Drivers</h3><p>Add a rated driver to any booking.</p></div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="fa-solid fa-headset"></i></div>
+            <div><h3>24/7 Support</h3><p>We are always here to help you.</p></div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section">
+        <div class="section-heading">
+            <p class="section-label">EXPLORE</p>
+            <h2>Vehicle <span>Categories</span></h2>
+            <p>Find the perfect vehicle for every kind of journey.</p>
+        </div>
+        <div class="category-grid">
+            <a href="vehicles.html?type=Bike" class="category-card">
+                <img src="../Images/Vehicles/royal-enfield.jpg" alt="Bikes" loading="lazy">
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3>Bikes</h3>
+                    <span>Explore Bikes <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a href="vehicles.html?type=Car" class="category-card">
+                <img src="../Images/Vehicles/honda-city.jpg" alt="Cars" loading="lazy">
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3>Cars</h3>
+                    <span>Explore Cars <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </a>
+            <a href="vehicles.html?type=Minibus" class="category-card">
+                <img src="../Images/Vehicles/type-minibus.svg" alt="Minibuses" loading="lazy">
+                <div class="category-overlay"></div>
+                <div class="category-content">
+                    <h3>Minibuses</h3>
+                    <span>Explore Minibuses <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- POPULAR VEHICLES (loaded from the database) -->
+    <section class="section" style="padding-top: 20px;">
+        <div class="section-heading">
+            <p class="section-label">OUR COLLECTION</p>
+            <h2>Popular <span>Vehicles</span></h2>
+            <p>Explore some of our most popular rides.</p>
+        </div>
+        <div class="vehicle-grid" id="popularGrid">
+            <p class="alert" style="grid-column: 1 / -1;">Loading vehicles...</p>
+        </div>
+        <div class="view-all-container">
+            <a href="vehicles.html" class="btn btn-outline">
+                View All Vehicles <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- OFFERS (loaded from the database) -->
+    <section class="offers-section">
+        <div class="section">
+            <div class="section-heading">
+                <p class="section-label">SAVE MORE</p>
+                <h2>Current <span>Offers</span></h2>
+                <p>Pick an offer while booking. Each one applies only to bookings that qualify.</p>
+            </div>
+            <div class="offer-grid" id="offerGrid">
+                <p class="alert" style="grid-column: 1 / -1;">Loading offers...</p>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/home.js"></script>
+</body>
+</html>

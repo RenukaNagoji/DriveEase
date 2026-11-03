@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Vehicles | DriveEase</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="vehicles" class="">
+
+    <div id="siteHeader"></div>
+
+    <section class="page-banner">
+        <div class="page-banner-inner">
+            <p class="eyebrow">YOUR JOURNEY STARTS HERE</p>
+            <h1>Find the right vehicle</h1>
+            <p>From everyday rides to group trips, discover a vehicle that suits your plans.</p>
+        </div>
+    </section>
+
+    <main class="page-container">
+        <form class="toolbar" id="vehicleToolbar" onsubmit="return false;">
+            <div class="tool grow">
+                <label for="vehicleSearch">Search</label>
+                <input type="search" id="vehicleSearch" class="form-control" placeholder="Search by vehicle name...">
+            </div>
+            <div class="tool">
+                <label for="typeFilter">Category</label>
+                <select id="typeFilter" class="form-control"><option value="">All categories</option></select>
+            </div>
+            <div class="tool">
+                <label for="startFilter">Pick-up</label>
+                <input type="datetime-local" id="startFilter" class="form-control">
+            </div>
+            <div class="tool">
+                <label for="endFilter">Return</label>
+                <input type="datetime-local" id="endFilter" class="form-control">
+            </div>
+            <div class="tool">
+                <label for="availabilityFilter">Availability</label>
+                <select id="availabilityFilter" class="form-control">
+                    <option value="all">All vehicles</option>
+                    <option value="available">Available only</option>
+                    <option value="unavailable">Unavailable</option>
+                </select>
+            </div>
+        </form>
+
+        <div class="result-line">
+            <span id="vehicleCount">Loading vehicles...</span>
+            <span id="dateHint"></span>
+        </div>
+        <div id="vehicleMessage" class="alert" role="status" aria-live="polite"></div>
+        <div class="vehicle-grid" id="vehicleGrid"></div>
+
+        <div class="empty-state" id="vehicleEmpty" hidden>
+            <div class="empty-icon">🔎</div>
+            <h3>No vehicles found</h3>
+            <p>Try another search term or change your filters.</p>
+            <button type="button" class="btn" id="resetFilters">Reset Filters</button>
+        </div>
+    </main>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/vehicles.js"></script>
+</body>
+</html>

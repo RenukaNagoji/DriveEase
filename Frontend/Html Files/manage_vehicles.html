@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Vehicles | DriveEase</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../Css Files/style.css">
+</head>
+<body data-page="admin" class="">
+
+    <div id="siteHeader"></div>
+
+
+    <div class="admin-shell">
+        <aside class="admin-sidebar" id="adminSidebar"></aside>
+        <main class="admin-main">
+            <div class="admin-heading">
+                <div>
+                    <h1>Vehicle Management</h1>
+                    <p>View, add, edit and remove your vehicle records.</p>
+                </div>
+                <a class="btn btn-sm" href="add_vehicle.html"><i class="fa-solid fa-plus"></i> Add Vehicle</a>
+            </div>
+
+            <div class="toolbar">
+                <div class="tool grow">
+                    <label for="vehicleSearch">Search</label>
+                    <input type="search" id="vehicleSearch" class="form-control" placeholder="Search by vehicle name...">
+                </div>
+                <div class="tool">
+                    <label for="vehicleStatusFilter">Status</label>
+                    <select id="vehicleStatusFilter" class="form-control">
+                        <option value="">All statuses</option>
+                        <option value="available">Available</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+
+            <p id="manageMessage" class="alert" role="status" aria-live="polite">Loading vehicles...</p>
+            <div class="table-wrap"><table class="data-table">
+                <thead><tr><th>ID</th><th>Vehicle Name</th><th>Type</th><th>Price / Day</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody id="manageVehiclesBody"><tr><td colspan="6">Loading vehicles...</td></tr></tbody>
+            </table></div>
+
+        </main>
+    </div>
+
+
+    <div id="siteFooter"></div>
+
+    <script src="../Javascript Files/main.js"></script>
+    <script src="../Javascript Files/admin_common.js"></script>
+    <script src="../Javascript Files/manage_vehicles.js"></script>
+</body>
+</html>
